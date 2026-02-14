@@ -22,7 +22,7 @@ This is the foundation for building more advanced reasoning systems later.
 5. Ollama generates an explanation using the retrieved rules
 
 ## How To Run It
-FIXME
+```python rules_rag.py```
 
 ## Next Steps
 - Add better citation formatting
