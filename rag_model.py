@@ -6,8 +6,8 @@ from langchain_core.output_parsers import StrOutputParser
 
 # Load in rules file
 print("Reading files...")
-with open('data/mtg_rules_20260116.txt', 'r', encoding='utf-8') as file:
-    contents = file.read()
+with open('data/mtg_glossary_20260116.txt', 'r', encoding='utf-8') as file:
+    rules = file.read()
 print("Files loaded.")
 
 # Initialize a text splitter with specified chunk size and overlap
@@ -16,7 +16,7 @@ text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
     chunk_size=1000, chunk_overlap=150
 )
 # Split the documents into chunks
-doc_splits = text_splitter.split_text(contents)
+doc_splits = text_splitter.split_text(rules)
 print("Chunks generated.")
 
 
@@ -30,13 +30,15 @@ print("Chunks embeded.")
 retriever = vectorstore.as_retriever(k=5)
 
 prompt = PromptTemplate.from_template(
-    """You are an expert in the rules of Magic the Gathering.
+    """
+    You are an expert in the rules of Magic the Gathering.
     Use the following documents to answer the question.
     If you don't know the answer, just say that you don't know.
-    Use three sentences maximum, list the rules where you gathered your information from, and keep the answer concise:
+    Give a detailed answer to the question, list the rules and what they say from where you gathered your information, and keep the answer concise:
     Question: {question}
     Documents: {documents}
-    Answer:"""
+    Answer:
+    """
 )
 
 # Initialize the LLM with Llama 3.1 model

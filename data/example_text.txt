@@ -1,0 +1,53 @@
+Contents
+
+1. Foods
+100. Types of Food
+101. Fruits
+102. Veggies
+103. Meats
+
+2. Drinks
+200. Types of Drinks
+201. Water
+202. Soda
+203. Coffee
+204. Tea
+205. Energy Drinks
+
+3. Snacks
+300. Types of Snacks
+301. Chips
+302. Cookies
+303. Candy
+304. Healthy
+
+Glossary
+
+1. Foods
+
+100. Types of Food
+
+100.1 There are many types of food.
+
+100.2 Healthy foods include fruits and veggies.
+
+100.2a Fruits come from trees or bushes
+
+100.2b Veggies come from the ground
+
+100.3 There are foods, like meats, that are high in protein.
+
+.
+.
+.
+
+Glossary
+
+Fruit
+A food source that comes from trees or bushes.
+
+Meat
+A food source that comes from animals.
+
+Veggies
+A food source that comes from the ground.
