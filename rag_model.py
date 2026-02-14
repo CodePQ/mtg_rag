@@ -6,7 +6,7 @@ from langchain_core.output_parsers import StrOutputParser
 
 # Load in rules file
 print("Reading files...")
-with open('data/mtg_glossary_20260116.txt', 'r', encoding='utf-8') as file:
+with open('data/MagicCompRules_20260116.txt', 'r', encoding='utf-8') as file:
     rules = file.read()
 print("Files loaded.")
 
@@ -34,7 +34,10 @@ prompt = PromptTemplate.from_template(
     You are an expert in the rules of Magic the Gathering.
     Use the following documents to answer the question.
     If you don't know the answer, just say that you don't know.
-    Give a detailed answer to the question, list the rules and what they say from where you gathered your information, and keep the answer concise:
+    When giving an answer, provide the ultimate ruling first. 
+    Then, list out the rules and their contents in a list fashion so the user knows where the information was referenced from. 
+    Keep the ruling to the question compact and concise. 
+    Make the list of rules easy to read.:
     Question: {question}
     Documents: {documents}
     Answer:
@@ -73,8 +76,14 @@ class RAGApplication:
 print("Initializing RAG...")
 rag_application = RAGApplication(retriever, rag_chain)
 print("RAG initialized.\n")
-# Example usage
-question = input("Enter quesiton: ")
-answer = rag_application.run(question)
-print("Question:", question)
-print("Answer:", answer)
+running = True
+while running:
+    # Example usage
+    question = input("Enter quesiton: ")
+    if question == 'quit':
+        running = False
+    else:
+        answer = rag_application.run(question)
+        print("Answer:", answer)
+    print(150*"=")
+    print("\n")
