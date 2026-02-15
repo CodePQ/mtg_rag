@@ -31,12 +31,12 @@ This is an MTG-focused system first, designed for future expansion.
 
 Phase 1 Architecture:
 
-1.  Rule Document Ingestion\
-2.  Text Chunking (preserving rule numbers like 603.1, 704.5a)\
-3.  Embedding Generation (local embedding model)\
-4.  Vector Storage (FAISS or Chroma)\
-5.  Query → Retrieval → Prompt Construction\
-6.  Ollama Response Generation\
+1.  Rule Document Ingestion
+2.  Text Chunking (preserving rule numbers like 603.1, 704.5a)
+3.  Embedding Generation (local embedding model)
+4.  Vector Storage (FAISS or Chroma)
+5.  Query → Retrieval → Prompt Construction
+6.  Ollama Response Generation
 7.  Citation Formatting
 
 ------------------------------------------------------------------------
@@ -44,9 +44,9 @@ Phase 1 Architecture:
 ## Tech Stack
 
 -   Python\
--   Ollama (local LLM runtime)\
--   FAISS or Chroma (vector database)\
--   Local embedding model\
+-   Ollama (local LLM runtime)
+-   FAISS or Chroma (vector database)
+-   Local embedding model
 -   Structured rule parsing
 
 ------------------------------------------------------------------------
@@ -102,7 +102,7 @@ Phase 1 Architecture:
 
 -   Retrieval accuracy
 -   Citation correctness
--   Latency target: \< 3 seconds (local)
+-   Latency target: < 3 seconds (local)
 -   Manual validation against official rulings
 -   Hallucination frequency
 
