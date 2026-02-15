@@ -7,42 +7,14 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
 # Directory containing data files
-data_folder = "data/"
-all_doc_splits = []
-
-# Initialize a text splitter with specified chunk size and overlap
-text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
-    chunk_size=150, chunk_overlap=20
-)
-
-print("Reading and splitting files...")
-
-# Read each file in 'data/'
-for filename in os.listdir(data_folder):
-    if filename.endswith(".txt"):
-        file_path = os.path.join(data_folder, filename)
-
-        with open(file_path, 'r', encoding='utf-8') as file:
-            content = file.read()
-
-            # Create chunks
-            chunks = text_splitter.split_text(content)
-
-            for chunk in chunks:
-                new_doc = Document(
-                    page_content=chunk,
-                    metadata={"source": filename,
-                              "topic": filename.replace(".txt", "")}
-                )
-
-                all_doc_splits.append(new_doc)
-
-print(f"Total chunks generated: {len(all_doc_splits)}")
+with open('complete_ruleset/MagicCompRules_20260116.txt', 'r', encoding='utf-8') as file:
+    rules = file.read()
+    rule_list = rules.split('\n\n')
 
 # Create embeddings for documents and store them in a vector store
 print("Embedding chunks...")
 vectorstore = SKLearnVectorStore.from_texts(
-    texts=all_doc_splits,
+    texts=rule_list,
     embedding=OllamaEmbeddings(model="nomic-embed-text"),
 )
 print("Chunks embeded.")

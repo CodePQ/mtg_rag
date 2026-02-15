@@ -12,21 +12,17 @@ print("Files loaded.")
 
 # Initialize a text splitter with specified chunk size and overlap
 print("Splitting files into chunks...")
-text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
-    chunk_size=200, chunk_overlap=50
-)
-# Split the documents into chunks
-doc_splits = text_splitter.split_text(rules)
+rules_list = rules.split('\n\n')
 print("Chunks generated.")
-
 
 # Create embeddings for documents and store them in a vector store
 print("Embedding chunks...")
 vectorstore = SKLearnVectorStore.from_texts(
-    texts=doc_splits,
+    texts=rules_list,
     embedding=OllamaEmbeddings(model="nomic-embed-text"),
 )
 print("Chunks embeded.")
+
 retriever = vectorstore.as_retriever(k=5)
 
 prompt = PromptTemplate.from_template(
