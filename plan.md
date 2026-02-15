@@ -69,16 +69,10 @@ Target: Functional local command-line system
 -   [x] Chunk rules into structured segments
 -   [x] Generate embeddings (local embedding model)
 -   [ ] Store embeddings in vector database (FAISS or Chroma)
--   [ ] Build retrieval pipeline (top-k similarity search)
+-   [x] Build retrieval pipeline (top-k similarity search)
 -   [x] Construct prompt template for Ollama
--   [ ] Generate answer with citations
--   [ ] Print response with referenced rule numbers
-
-Deliverable example:
-
-``` bash
-python mtg_rag.py "If a creature dies while enchanted, what happens?"
-```
+-   [x] Generate answer with citations
+-   [x] Print response with referenced rule numbers
 
 ------------------------------------------------------------------------
 
@@ -174,3 +168,6 @@ Target: Advanced reasoning & structured explanations
 ## Changelog
 
 2026-02-14: Initial structured plan created by Cody Paquette.
+2026-02-14: Started work on prototype for rule interpretation.
+2026-02-14: Built working prototype for rule interpretation.
+2026-02-15: Started work on prototype for card interpretation.
