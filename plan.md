@@ -167,7 +167,7 @@ Target: Advanced reasoning & structured explanations
 
 ## Changelog
 
-2026-02-14: Initial structured plan created by Cody Paquette.
-2026-02-14: Started work on prototype for rule interpretation.
-2026-02-14: Built working prototype for rule interpretation.
-2026-02-15: Started work on prototype for card interpretation.
+- 2026-02-14: Initial structured plan created by Cody Paquette.
+- 2026-02-14: Started work on prototype for rule interpretation.
+- 2026-02-14: Built working prototype for rule interpretation.
+- 2026-02-15: Started work on prototype for card interpretation.
